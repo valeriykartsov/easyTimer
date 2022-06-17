@@ -62,6 +62,7 @@ class ViewController: UIViewController
                 }
     }
     
+//  счетчик времени
     @objc func timerCounter() -> Void
     {
         count = count + 1
@@ -70,6 +71,7 @@ class ViewController: UIViewController
         TimerLabel.text = timeString
     }
     
+//  переводит секунды в минуты и часы
     func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int)
     {
         return ((seconds / 3600), ((seconds % 3600) / 60),((seconds % 3600) % 60))

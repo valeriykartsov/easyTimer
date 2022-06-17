@@ -23,24 +23,6 @@ class ViewController: UIViewController
         startStopButton.setTitleColor(UIColor.green, for: .normal)
     }
 
-
-    @IBAction func startStopTapped(_ sender: Any)
-    {
-        if(timerCounting)
-        {
-            timerCounting = false
-            timer.invalidate()
-            startStopButton.setTitle("START", for: .normal)
-            startStopButton.setTitleColor(UIColor.green, for: .normal)
-        }
-        else
-        {
-            timerCounting = true
-            startStopButton.setTitle("STOP", for: .normal)
-            startStopButton.setTitleColor(UIColor.red, for: .normal)
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-        }
-    }
     
     @IBAction func resetTapped(_ sender: Any)
     {
@@ -61,20 +43,39 @@ class ViewController: UIViewController
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    @IBAction func startStopTapped(_ sender: Any)
+    {
+        if(timerCounting)
+                {
+                    timerCounting = false
+                    timer.invalidate()
+                    startStopButton.setTitle("START", for: .normal)
+                    startStopButton.setTitleColor(UIColor.green, for: .normal)
+                }
+                else
+                {
+                    timerCounting = true
+                    startStopButton.setTitle("STOP", for: .normal)
+                    startStopButton.setTitleColor(UIColor.red, for: .normal)
+                    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+                }
+    }
+    
     @objc func timerCounter() -> Void
     {
         count = count + 1
-        let time = secondsHoursMinutes(seconds: count)
+        let time = secondsToHoursMinutesSeconds(seconds: count)
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         TimerLabel.text = timeString
     }
     
-    func secondsHoursMinutes(seconds: Int) -> (Int, Int, Int)
+    func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int)
     {
-        return((seconds / 3600), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
+        return ((seconds / 3600), ((seconds % 3600) / 60),((seconds % 3600) % 60))
     }
     
-    func makeTimeString(hours: Int, minutes: Int, seconds: Int) -> String
+    func makeTimeString(hours: Int, minutes: Int, seconds : Int) -> String
     {
         var timeString = ""
         timeString += String(format: "%02d", hours)
@@ -84,6 +85,4 @@ class ViewController: UIViewController
         timeString += String(format: "%02d", seconds)
         return timeString
     }
-    
 }
-

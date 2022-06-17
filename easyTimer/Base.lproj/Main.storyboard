@@ -29,7 +29,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="startTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5d8-sF-QJe"/>
+                                    <action selector="startStopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TFf-bY-Ogk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlx-BA-kaZ">
@@ -59,7 +59,7 @@
                     <connections>
                         <outlet property="TimerLabel" destination="hPK-d3-Yel" id="gTo-Mp-Hoa"/>
                         <outlet property="resetButton" destination="mlx-BA-kaZ" id="h9K-Vw-hP2"/>
-                        <outlet property="startStopButton" destination="C8o-KC-R47" id="uQh-Dv-Fza"/>
+                        <outlet property="startStopButton" destination="C8o-KC-R47" id="Qzp-Il-35w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
